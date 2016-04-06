@@ -2,6 +2,10 @@ var React = require('react');
 
 MenuItem = React.createClass({
 
+  handleItemClick: function() {
+    alert(this.props.title);
+  },
+
   render: function() {
     // console.log(this.props.submenu);
     var submenus = false;
@@ -14,12 +18,12 @@ MenuItem = React.createClass({
     }
 
     return (
-        <li>{this.props.title}
+        <li>
+          <a onClick={this.handleItemClick}>{this.props.title} </a>
           {submenus}
         </li>
     );
   }
-
 });
 
 module.exports = MenuItem;
