@@ -9,7 +9,7 @@ MenuItem = React.createClass({
   render: function() {
     var submenus = false;
     if(this.props.submenu.data !== null){
-      submenus = <Menu data={this.props.submenu.data} />
+      submenus = <Menu data={this.props.submenu.data}  level={this.props.level+1}/>
     }
 
     return (
