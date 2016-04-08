@@ -7,19 +7,14 @@ MenuItem = React.createClass({
   },
 
   render: function() {
-    // console.log(this.props.submenu);
     var submenus = false;
     if(this.props.submenu.data !== null){
-      submenus = this.props.submenu.data.map(function(item) {
-        return (
-          <Menu data={[item]} />
-        );
-      });
+      submenus = <Menu data={this.props.submenu.data} />
     }
 
     return (
         <li>
-          <a onClick={this.handleItemClick}>{this.props.title} </a>
+          <a onClick={this.handleItemClick}>{this.props.title}</a>
           {submenus}
         </li>
     );

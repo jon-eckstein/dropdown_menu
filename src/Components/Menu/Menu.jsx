@@ -3,6 +3,7 @@ var MenuItem = require('../MenuItem/MenuItem');
 
 Menu = React.createClass({
   render: function() {
+    console.log(this.props.data);
     var menuItems = this.props.data.map(function(item, index){
           var submenuData = {data:item.submenu};
           return (
@@ -14,7 +15,7 @@ Menu = React.createClass({
               );
         });
     return (
-      <ul className="dropdown-submenu">
+      <ul>
         {menuItems}
       </ul>
     );
