@@ -1,5 +1,16 @@
-Task:
+##React Dropdown menu
 
+###Dependencies
+- [npm](https://github.com/npm/npm)
+- gulp (*npm install gulp -g*)
+
+###Build and Run
+- *shell*> npm install
+- *shell*> gulp
+
+---
+
+Task:
 Using jQuery/javascript, CSS, DOM, and the initial template file index.html;
 please create a dropdown menu similar to the one pictured in dropdown.png
 
