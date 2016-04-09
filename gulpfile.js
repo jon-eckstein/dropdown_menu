@@ -44,8 +44,10 @@ gulp.task('watch-sass', function () {
 });
 
 gulp.task('open', function(){
-  gulp.src('./index.html')
-  .pipe(open());
+  setTimeout(function() {
+    gulp.src('./index.html')
+    .pipe(open());
+  }, 3000);
 });
 
 var bundler = watchify(browserify({

@@ -7,6 +7,7 @@
 ###Build and Run
 - *shell*> npm install
 - *shell*> gulp
+- wait 3 seconds and the browser will automatically open with the correct page
 
 ---
 
