@@ -10,10 +10,9 @@ Menu = React.createClass({
                   title={item.title}
                   submenu={submenuData}
                   key={index}
-                  level={this.props.level}
                 />
               );
-        }.bind(this));
+        });
     return (
       <ul>
         {menuItems}

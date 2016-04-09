@@ -1,4 +1,4 @@
-var MENU_DATA = [
+module.exports = [
   {
     'title': 'Item 1',
     'submenu': null,

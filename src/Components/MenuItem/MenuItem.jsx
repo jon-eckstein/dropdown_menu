@@ -9,12 +9,12 @@ MenuItem = React.createClass({
   render: function() {
     var submenus = false;
     if(this.props.submenu.data !== null){
-      submenus = <Menu data={this.props.submenu.data}  level={this.props.level+1}/>
+      submenus = <Menu data={this.props.submenu.data} />
     }
 
     return (
         <li>
-          <a href="#">{this.props.title}</a>
+          <a onClick={this.handleItemClick}> {this.props.title} </a>
           {submenus}
         </li>
     );
