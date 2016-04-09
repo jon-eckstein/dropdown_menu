@@ -3,55 +3,107 @@ html, body {
   margin: 0;
 }
 
-/*.menu-item {
-  width: 200px;
-  height: 70px;
-  background-color: orange;
-}*/
-
-
 .menu {
   position: relative;
 }
 
-.dropdown-submenu{
-  position:relative;
+/* We remove the margin, padding, and list style of UL and LI components */
+#menuwrapper ul, #menuwrapper ul li{
+    margin:0;
+    padding:0;
+    width: 200px;
+    height: 70px;
+    border-bottom:solid 1px black;
+    list-style:none;
+    cursor:pointer;
 }
-.dropdown-submenu>.dropdown-menu{
-  top:0;
-  left:100%;
-  margin-top:-6px;
-  margin-left:-1px;
-  -webkit-border-radius:0 6px 6px 6px;
-  -moz-border-radius:0 6px 6px 6px;
-  border-radius:0 6px 6px 6px;
+
+#menuwrapper ul li, #menuwrapper a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-.dropdown-submenu:hover>.dropdown-menu{
-  display:block;
+
+/* We apply background color and border bottom white and width to 150px */
+#menuwrapper ul li{
+    background-color: orange;
 }
-.dropdown-submenu>a:after{
-  display:block;content:" ";
-  float:right;
-  width:0;
-  height:0;
-  border-color:transparent;
-  border-style:solid;
-  border-width:5px 0 5px 5px;
-  border-left-color:#cccccc;
-  margin-top:5px;
-  margin-right:-10px;
+
+/* We apply the background hover color when user hover the mouse over of the li component */
+#menuwrapper ul li:hover{
+    position:relative;
 }
-.dropdown-submenu:hover>a:after {
-  border-left-color:#ffffff;
+
+/* We apply the link style */
+#menuwrapper ul li a{
+    padding:5px 15px;
+    color:#ffffff;
+    text-decoration:none;
 }
-.dropdown-submenu.pull-left {
-  float:none;
+
+/**** SECOND LEVEL MENU ****/
+/* We make the position to absolute for flyout menu and hidden the ul until the user hover the parent li item */
+#menuwrapper ul li ul{
+    position:absolute;
+    display:none;
 }
-.dropdown-submenu.pull-left>.dropdown-menu
-{
-  left:-100%;
-  margin-left:10px;
-  -webkit-border-radius:6px 0 6px 6px;
-  -moz-border-radius:6px 0 6px 6px;
-  border-radius:6px 0 6px 6px;
+
+/* When user has hovered the li item, we show the ul list by applying display:block, note: 150px is the individual menu width.  */
+#menuwrapper ul li:hover ul{
+    left:200px;
+    top:0px;
+    display:block;
+}
+
+/* we apply different background color to 2nd level menu items*/
+#menuwrapper ul li ul li{
+    background-color:#cae25a;
+}
+
+/* We change the background color for the level 2 submenu when hovering the menu */
+#menuwrapper ul li:hover ul li:hover{
+    background-color:#b1b536;
+}
+
+/* We style the color of level 2 links */
+#menuwrapper ul li ul li a{
+    color:#454444;
+    display:inline-block;
+    width:120px;
+}
+
+/**** THIRD LEVEL MENU ****/
+/* We need to hide the 3rd menu, when hovering the first level menu */
+#menuwrapper ul li:hover ul li ul{
+    position:absolute;
+    display:none;
+}
+
+/* We show the third level menu only when they hover the second level menu parent */
+#menuwrapper ul li:hover ul li:hover ul{
+    display:block;
+    left:200px;
+    top:0;
+}
+
+/* We change the background color for the level 3 submenu*/
+#menuwrapper ul li:hover ul li:hover ul li{
+    background:#86d3fa;
+}
+
+/* We change the background color for the level 3 submenu when hovering the menu */
+
+#menuwrapper ul li:hover ul li:hover ul li:hover{
+    background:#358ebc;
+}
+
+/* We change the level 3 link color */
+#menuwrapper ul li:hover ul li:hover ul li a{
+    color:#ffffff;
+}
+
+/* Clear float */
+.clear{
+    clear:both;
 }

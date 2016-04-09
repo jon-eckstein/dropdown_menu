@@ -14,7 +14,7 @@ MenuItem = React.createClass({
 
     return (
         <li>
-          <a onClick={this.handleItemClick}>{this.props.title}</a>
+          <a href="#">{this.props.title}</a>
           {submenus}
         </li>
     );
