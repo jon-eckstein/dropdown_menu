@@ -5,7 +5,9 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var reactify = require('reactify');
 var notifier = require('node-notifier');
-var server = require('gulp-server-livereload');
+var concat = require('gulp-concat');
+var sass = require('gulp-sass');
+var open = require('gulp-open');
 
 var notify = function(error) {
   var message = 'In: ';
@@ -30,6 +32,22 @@ var notify = function(error) {
   notifier.notify({title: title, message: message});
 };
 
+gulp.task('sass', function () {
+  return gulp.src('./src/menu.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(concat('menu.css'))
+    .pipe(gulp.dest('./'))
+});
+
+gulp.task('watch-sass', function () {
+  return gulp.watch('./src/menu.scss', ['sass']);
+});
+
+gulp.task('open', function(){
+  gulp.src('./index.html')
+  .pipe(open());
+});
+
 var bundler = watchify(browserify({
   entries: ['./src/app.jsx'],
   transform: [reactify],
@@ -53,18 +71,4 @@ gulp.task('build', function() {
   bundle()
 });
 
-gulp.task('serve', function(done) {
-  gulp.src(['.', '!node_modules'])
-    .pipe(server({
-      livereload: {
-        enable: true,
-        filter: function(filePath, cb) {
-          cb( /main.js/.test(filePath) )
-        }
-      },
-      open: true
-    }));
-});
-
-// gulp.task('default', ['build', 'serve']);
-gulp.task('default', ['build']);
+gulp.task('default', ['build', 'sass', 'watch-sass', 'open']);
