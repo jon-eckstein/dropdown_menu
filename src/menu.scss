@@ -1,6 +1,7 @@
 $hipcamp-font-set:  "Calibre", Helvetica, Arial, sans-serif;
 $menu-item-width:   200px;
 $menu-item-height:  70px;
+$border-style: solid 1px black;
 
 html, body {
   font: 100% $hipcamp-font-set;
@@ -21,10 +22,16 @@ html, body {
   width: $menu-item-width;
   height: $menu-item-height;
   line-height: $menu-item-height;
-  border-bottom: solid 1px black;
+  border-bottom: $border-style;
+  border-left: $border-style;
+  border-right: $border-style;
   list-style: none;
   cursor: pointer;
   text-align: center;
+}
+
+.menu li:first-child {
+  border-top: $border-style;
 }
 
 .menu a {
@@ -54,7 +61,7 @@ html, body {
 /* When user has hovered the li item, we show the ul list by applying display:block, note: 150px is the individual menu width.  */
 .menu ul li:hover ul{
   left: $menu-item-width;
-  top: 0px;
+  top: -1px;
   display: block;
 }
 
@@ -74,7 +81,7 @@ html, body {
 .menu ul li:hover ul li:hover ul{
   display: block;
   left: $menu-item-width;
-  top: 0;
+  top: -1px;
 }
 
 /* We change the background color for the level 3 submenu*/
